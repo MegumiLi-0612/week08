@@ -54,7 +54,7 @@ pip install pandas matplotlib numpy
 **Clone the repository**:
 
 ```bash
-git clone https://github.com/hongyu-liao/baseball-simulation-project
+git clone https://github.com/MegumiLi-0612/week08.git
 cd baseball-simulation-project
 ```
 
