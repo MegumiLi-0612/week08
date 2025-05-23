@@ -1,45 +1,45 @@
 # Functional Specifications: Baseball Monte Carlo Simulation
 
-## 1. Overview
+## 1. Project Summary
 
-This document outlines the functional specifications for the Baseball Monte Carlo Simulation project. The primary goal is to simulate a large number of baseball games between two teams using player statistics loaded from CSV files and to predict overall win probabilities.
+This document specifies the key functionalities and expectations for the Baseball Monte Carlo Simulation. The simulation models a series of baseball games between two teams using statistical data from CSV files and estimates win probabilities based on repeated simulations.
 
 ## 2. User Stories
 
-* **US-001:** As a user, I want to simulate a single baseball game between two predefined teams (e.g., Cubs vs. White Sox) so that I can see a possible outcome and score.
-* **US-002:** As a user, I want the simulation to use player batting statistics (AVG, OBP, SLG) from CSV files to influence at-bat outcomes so that the simulation reflects player abilities.
-* **US-003:** As a user, I want the simulation to use pitcher statistics (ERA) from CSV files to influence at-bat outcomes so that pitcher quality is a factor.
-* **US-004:** As a user, I want the simulation to run for a specified number of innings (e.g., 9 innings) to represent a standard game.
-* **US-005:** As a user, I want to run a Monte Carlo simulation (e.g., 1000 games) so that I can obtain statistically relevant win probability predictions for each team.
-* **US-006:** As a user, I want to see the final win percentages for each team after the Monte Carlo simulation is complete.
-* **US-007:** As a developer, I want the simulation to handle basic game state (innings, outs, score, runners on base) so that game progression is logical.
+- **US-001:** As a user, I want to simulate a full baseball match between two selected teams (e.g., Cubs vs. White Sox) to observe possible outcomes.
+- **US-002:** As a user, I expect batter performance in the simulation to be influenced by their real-life stats (AVG, OBP, SLG).
+- **US-003:** As a user, I want pitcher performance (e.g., ERA) to influence game outcomes, particularly during at-bats.
+- **US-004:** As a user, I want each game to follow standard rules over 9 innings.
+- **US-005:** As a user, I want to simulate thousands of games to generate reliable win rate estimates using Monte Carlo methods.
+- **US-006:** As a user, I want to see a summary of win rates for each team after all simulations finish.
+- **US-007:** As a developer, I need a game engine that handles scorekeeping, outs, innings, and base-running logically.
 
-## 3. Requirements
+## 3. Functional Requirements
 
-| ID    | Requirement Description                                                                    | User Story | Priority |
-| :---- | :----------------------------------------------------------------------------------------- | :--------- | :------- |
-| REQ-001 | The system shall simulate a baseball game inning by inning.                                | US-001     | High     |
-| REQ-002 | Each at-bat outcome (out, strikeout, walk, single, double, triple, home run) shall be determined probabilistically. | US-001     | High     |
-| REQ-003 | The system shall load batter data (Player Name, BA, OBP, SLG) from specified CSV files.    | US-002     | High     |
-| REQ-004 | The system shall load pitcher data (Player Name, ERA) from specified CSV files.             | US-003     | High     |
-| REQ-005 | Batter hit/on-base chances shall be influenced by their loaded statistics and the opposing pitcher's ERA (via control_factor, strikeout_bonus). | US-002, US-003 | High     |
-| REQ-006 | The simulation shall track outs, with 3 outs ending a half-inning.                         | US-007     | High     |
-| REQ-007 | The simulation shall track runners on bases and advance them based on at-bat outcomes (simplified logic). | US-007     | Medium   |
-| REQ-008 | The simulation shall track and update the score for both teams.                            | US-007     | High     |
-| REQ-009 | A standard game simulation shall run for 9 innings.                                        | US-004     | High     |
-| REQ-010 | The system shall be capable of running a specified number of game simulations (e.g., 1000) in a batch (Monte Carlo). | US-005     | High     |
-| REQ-011 | After completing the Monte Carlo simulation, the system shall output the win count and win percentage for each team. | US-006     | High     |
-| REQ-012 | The system shall handle cases where data might be missing or non-numeric in CSV files by using default player/pitcher statistics. | N/A        | Medium   |
+| ID     | Description                                                                                           | Related Story      | Priority |
+|--------|-------------------------------------------------------------------------------------------------------|--------------------|----------|
+| R-001  | The system must simulate a game inning by inning.                                                    | US-001             | High     |
+| R-002  | At-bat outcomes (e.g., single, strikeout, home run) must be determined through probabilistic rules.  | US-001             | High     |
+| R-003  | Batter data (name, AVG, OBP, SLG) must be read from external CSV files.                              | US-002             | High     |
+| R-004  | Pitcher stats (name, ERA) must be loaded from CSVs.                                                  | US-003             | High     |
+| R-005  | Batter-pitcher interactions must reflect their statistical values (e.g., ERA impact modifiers).      | US-002, US-003     | High     |
+| R-006  | Outs must be counted, with three outs ending a team's batting half.                                  | US-007             | High     |
+| R-007  | Runner advancement must be logically implemented (basic base-running logic).                         | US-007             | Medium   |
+| R-008  | The simulation must maintain accurate scoring for both teams.                                        | US-007             | High     |
+| R-009  | Each simulated game must span 9 innings, unless early termination rules apply.                       | US-004             | High     |
+| R-010  | The simulation must support running a specified number of games in batch mode (e.g., 1000 games).    | US-005             | High     |
+| R-011  | After simulation, the system must report win counts and win rates per team.                          | US-006             | High     |
+| R-012  | If CSV data is missing or malformed, the system should fall back to default values to continue.      | N/A                | Medium   |
 
 ## 4. Acceptance Criteria
 
-| ID    | Requirement ID | Acceptance Criterion                                                                                                                               |
-| :---- | :------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AC-001 | REQ-001, REQ-009 | A single game simulation completes after 9 full innings (unless specific game-ending conditions like home team leading in bottom of 9th are met). |
-| AC-002 | REQ-002        | At-bat outcomes are varied and reflect a reasonable distribution (e.g., not all strikeouts, not all home runs).                                  |
-| AC-003 | REQ-003, REQ-004 | Player and Pitcher objects are successfully created with statistics loaded from the CSV files without error (or use defaults if data is invalid). |
-| AC-004 | REQ-005        | Different pitchers (based on ERA) should demonstrably affect batter outcomes over a large number of simulations.                                     |
-| AC-005 | REQ-006, REQ-007, REQ-008 | Game state (outs, score, bases) is updated correctly after each at-bat and half-inning.                                                    |
-| AC-006 | REQ-010        | The system can execute 1000 simulations without crashing.                                                                                          |
-| AC-007 | REQ-011        | The final output correctly displays the total wins and win percentage for each team based on the completed simulations.                              |
-| AC-008 | REQ-012        | If CSV data is malformed for a player/pitcher, the simulation runs using default placeholder stats for that entity without crashing.                 |
+| ID     | Linked Requirement(s) | Criteria                                                                                                               |
+|--------|------------------------|------------------------------------------------------------------------------------------------------------------------|
+| AC-001 | R-001, R-009           | A full game must complete 9 innings, or terminate early according to realistic baseball rules (e.g., walk-off win).   |
+| AC-002 | R-002                  | The simulation should yield a range of outcomes with realistic diversity (e.g., no single result dominates).          |
+| AC-003 | R-003, R-004           | Batter and pitcher stats must be successfully loaded or defaulted if invalid, with no simulation crashes.            |
+| AC-004 | R-005                  | ERA and batting metrics must demonstrably influence at-bat outcomes across simulations.                               |
+| AC-005 | R-006, R-007, R-008    | The game engine must correctly track inning flow, scoring, and base-runner logic throughout the game.                |
+| AC-006 | R-010                  | The system should complete a large number of game iterations (e.g., 1000) without runtime errors.                     |
+| AC-007 | R-011                  | The program must output accurate team win statistics after simulation finishes.                                       |
+| AC-008 | R-012                  | Simulations must continue even if data is incomplete or malformed, using defaults where necessary.                   |
