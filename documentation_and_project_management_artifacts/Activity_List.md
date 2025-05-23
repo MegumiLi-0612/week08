@@ -1,18 +1,16 @@
-# Activity List: Baseball Monte Carlo Simulation
-
 | Timestamp           | Activity                                                                                                                              | Performed By                                  |
 | :------------------ | :------------------------------------------------------------------------------------------------------------------------------------ | :-------------------------------------------- |
-| 2025-05-19 10:00:00 | team discussion on project scope, objectives, and data sources.                                                      | Yiwei Li, Hongyu Liao, Ziyang Huang         |
-| 2025-05-19 10:30:00 | Hongyu Liao and Yiwei Li began identifying and confirming required cleaned CSV data files (batting, pitching stats) from the provided `pitch-by-pitch-pro` GitHub repository. | Hongyu Liao, Yiwei Li                       |
-| 2025-05-19 11:00:00 | Yiwei Li, Hongyu Liao, and Gemini (AI) started conceptualizing the Python simulation script structure and core classes (`Player`, `Pitcher`, `GameState`). | Yiwei Li, Hongyu Liao, Gemini (AI)         |
-| 2025-05-19 11:30:00 | Hongyu Liao and Yiwei Li, with assistance from Gemini (AI), drafted initial Python functions for data loading (`load_batting_data`, `load_pitching_data`) using Pandas to read CSVs. | Hongyu Liao, Yiwei Li, Gemini (AI)         |
-| 2025-05-19 12:00:00 | Yiwei Li, Hongyu Liao, and Gemini (AI) drafted core probability logic for simulating a single at-bat (`simulate_at_bat_no_print`).     | Yiwei Li, Hongyu Liao, Gemini (AI)         |
-| 2025-05-19 12:30:00 | Concluded initial data collection and core code drafting for the day.                                                                 | Yiwei Li, Hongyu Liao, Gemini (AI)         |
-| 2025-05-20 09:00:00 | Yiwei Li and Hongyu Liao refined and debugged the `simulate_inning_half_no_print` and `simulate_game_no_print` functions.                 | Yiwei Li, Hongyu Liao                       |
-| 2025-05-20 10:30:00 | Hongyu Liao and Yiwei Li implemented the Monte Carlo simulation loop (for 10,000 iterations) and added win percentage calculation.      | Hongyu Liao, Yiwei Li                       |
-| 2025-05-20 11:30:00 | Conducted initial testing and code cleanup for the Python script.                                                                       | Yiwei Li, Hongyu Liao, Gemini (AI)         |
-| 2025-05-20 14:00:00 | Team discussion on the initial framework for project management documents.                                                              | Yiwei Li, Hongyu Liao, Ziyang Huang         |
-| 2025-05-21 09:00:00 | Yiwei Li, Hongyu Liao, and Ziyang Huang created the GitHub repository `baseball-simulation-project` and set up the initial folder structure as per assignment requirements. | Yiwei Li, Hongyu Liao, Ziyang Huang         |
-| 2025-05-21 09:30:00 | Yiwei Li, Hongyu Liao, Ziyang Huang, and Gemini (AI) began drafting project management documents: Functional Specs, WBS, Product Backlog.   | Yiwei Li, Hongyu Liao, Ziyang Huang, Gemini (AI) |
-| 2025-05-21 11:00:00 | Yiwei Li, Hongyu Liao, Ziyang Huang, and Gemini (AI) continued drafting project management documents: Status Log, Activity List (this document), Roadmap. | Yiwei Li, Hongyu Liao, Ziyang Huang, Gemini (AI) |
-| 2025-05-21 14:00:00 | (Example future entry) Reviewed and finalized all project management documents.                                                         | Yiwei Li, Hongyu Liao, Ziyang Huang         |
+| 2025-05-19 10:00:00 | Team discussion on project scope, objectives, and data sources.                                                                       | huihaoli                                      |
+| 2025-05-19 10:30:00 | Identified and confirmed required cleaned CSV data files (batting, pitching stats) from the `pitch-by-pitch-pro` GitHub repository.   | huihaoli                                      |
+| 2025-05-19 11:00:00 | Started conceptualizing the Python simulation script structure and core classes (`Player`, `Pitcher`, `GameState`).                   | huihaoli                                      |
+| 2025-05-19 11:30:00 | Drafted initial Python functions for data loading (`load_batting_data`, `load_pitching_data`) using Pandas to read CSVs.             | huihaoli                                      |
+| 2025-05-19 12:00:00 | Drafted core probability logic for simulating a single at-bat (`simulate_at_bat_no_print`).                                          | huihaoli                                      |
+| 2025-05-19 12:30:00 | Concluded initial data collection and core code drafting for the day.                                                                 | huihaoli                                      |
+| 2025-05-20 09:00:00 | Refined and debugged the `simulate_inning_half_no_print` and `simulate_game_no_print` functions.                                     | huihaoli                                      |
+| 2025-05-20 10:30:00 | Implemented the Monte Carlo simulation loop (10,000 iterations) and added win percentage calculation.                                 | huihaoli                                      |
+| 2025-05-20 11:30:00 | Conducted initial testing and code cleanup for the Python script.                                                                     | huihaoli                                      |
+| 2025-05-20 14:00:00 | Discussed initial framework for project management documents.                                                                         | huihaoli                                      |
+| 2025-05-21 09:00:00 | Created the GitHub repository `baseball-simulation-project` and set up the initial folder structure.                                  | huihaoli                                      |
+| 2025-05-21 09:30:00 | Began drafting project management documents: Functional Specs, WBS, Product Backlog.                                                  | huihaoli                                      |
+| 2025-05-21 11:00:00 | Continued drafting project management documents: Status Log, Activity List (this document), Roadmap.                                  | huihaoli                                      |
+| 2025-05-21 14:00:00 | (Example future entry) Reviewed and finalized all project management documents.                                                       | huihaoli                                      |
